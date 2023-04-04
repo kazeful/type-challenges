@@ -14,7 +14,6 @@ type PartialByKeys<T, K = keyof T> = Merge<
   Pick<T, Exclude<keyof T, K>>
 >
 
-type a = PartialByKeys<User, 'name'>
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
