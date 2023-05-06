@@ -15,7 +15,3 @@ export type Sub<A extends number, B extends number> = ConstructTuple<A> extends 
 export type Tail<T extends unknown[]> = T extends [infer _, ...infer Tail] ? Tail : T
 
 export type Head<T extends unknown[]> = T extends [...infer Head, infer _] ? Head : T
-
-export type Last<T extends unknown[]> = T extends [...infer _, infer Last] ? Last : T
-
-export type First<T extends unknown[]> = T extends [infer First, ...infer _] ? First : T

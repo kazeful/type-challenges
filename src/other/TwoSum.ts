@@ -1,7 +1,7 @@
 /* _____________ Your Code Here _____________ */
 import type { Sub, Tail } from '@/utils'
 
-type TwoSum<N extends number[], T extends number, S = never> = N['length'] extends 0
+type TwoSum<N extends number[], T extends number, S = Set<number>> = N['length'] extends 0
   ? false
   : Sub<T, N[0]> extends S
   ? true
@@ -28,6 +28,26 @@ type cases = [
 //   return arr.some((item, index) => arr.slice(index + 1).includes(target - item))
 // }
 
+// export function twoSum(arr: number[], target: number) {
+//   let left = 0, right = arr.length - 1
+//   const result = []
+//   while (left < right) {
+//     const leftVal = arr[left]
+//     const rightVal = arr[right]
+//     const sum = leftVal + rightVal
+//     if (sum === target) {
+//       result.push([leftVal, rightVal])
+//       left++
+//       right--
+//     } else if (sum < target) {
+//       left++
+//     } else {
+//       right--
+//     }
+//   }
+//   return result
+// }
+
 // export function twoSum(arr: number[], target: number, set: Set<number> = new Set()): boolean {
 //   if (arr.length === 0) return false
 //   return set.has(target - arr[0]) || twoSum(arr.slice(1), target, set.add(arr[0]))
@@ -36,7 +56,7 @@ type cases = [
 export function twoSum(arr: number[], target: number, set: Set<number> = new Set()): boolean {
   return arraySome(arr, (item) => {
     if (set.has(target - item)) {
-      return  true
+      return true
     } else {
       set.add(item)
       return false
