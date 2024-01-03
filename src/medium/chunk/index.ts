@@ -9,8 +9,8 @@ type Chunk<
     ? [Chunked, ...Chunk<T, N>]
     : Chunk<Tail, N, [...Chunked, Head]>
   : Chunked extends []
-  ? []
-  : [Chunked]
+    ? []
+    : [Chunked]
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
